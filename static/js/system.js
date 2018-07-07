@@ -48,7 +48,7 @@ const generatePlanets = (system, planets) => {
     var starMass = 10; //(1-200) 10 -> our sun
     var calcRadius = radius * 1000;
     var timeToRotate = ((2*Math.PI)*(radius * radius * radius))/ (starMass * 13.348); // 6.674 * 2 = 13.348
-    var angle =offsetAngle + ( (timeElapsed%(timeToRotate))*360/(31536000)))%360; //31536000 = 60*60*24*365
+    var angle =(offsetAngle + ( (timeElapsed%(timeToRotate))*360/(31536000)))%360; //31536000 = 60*60*24*365
     var planet = document.createElement("div");
     planet.classList.add('planet');
     planet.setAttribute('data-id', data.id);
