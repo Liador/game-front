@@ -44,7 +44,6 @@ const generatePlanets = (system, planets) => {
     // formula : timeToRotate = 2*PI *sqrt(radius^3/(6.674*10^-11 . starMass)) with radius in meters, starMass in kg and time in seconds
     var timeElapsed = Date.now();// get the time since the beginning of the server
     var offsetAngle = 90; //starting position when the server started
-    //var PI = 3.14159265358979;
     var starMass = 75; //(1-200) 10 -> our sun
     var calcRadius = radius * 1000;
     var timeToRotate = ((2*Math.PI)*(radius * radius * radius))/ (starMass * 13.348); // 6.674 * 2 = 13.348
