@@ -1,14 +1,11 @@
 var searchParams = new URLSearchParams(window.location.search);
 var id = searchParams.get('id');
 
-getCurrentPlayer().then(() => {
+fetchCurrentPlayer().then(() => {
   var profileLink = document.createElement('a');
   profileLink.href = '/views/profile';
   profileLink.innerText = player.pseudo;
   document.querySelector("#player-data h3").appendChild(profileLink);
-  var bankAccount = document.createElement('b');
-  bankAccount.innerHTML= player.wallet;
-  document.querySelector("#player-date h3").appendChild(profileLink);
 });
 
 const initPlanet = () => fetch(`/api/planets/${id}`, {

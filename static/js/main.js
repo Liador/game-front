@@ -9,6 +9,7 @@ Player.fetchCurrentPlayer().then(player => {
     link.rel = 'shortcut icon';
     link.href = `/static/images/factions/${player.faction.banner}`;
     document.getElementsByTagName('head')[0].appendChild(link);
+    console.log ("wallet : " + player.wallet);
 });
 
 window.setCurrentPlanet = id => localStorage.setItem('current_planet', id);
