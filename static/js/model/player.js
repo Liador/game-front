@@ -9,6 +9,7 @@ export default class Player {
         this.pseudo = data.pseudo;
         this.isActive = data.is_active;
         this.faction = (data.faction !== null) ? new Faction(data.faction) : null;
+        this.wallet = data.wallet;
         this.createdAt = data.created_at;
         this.updatedAt = data.updated_at;
     }
