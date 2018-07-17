@@ -6,6 +6,9 @@ getCurrentPlayer().then(() => {
   profileLink.href = '/views/profile';
   profileLink.innerText = player.pseudo;
   document.querySelector("#player-data h3").appendChild(profileLink);
+  var bankAccount = document.createElement('b');
+  bankAccount.innerHTML= player.wallet;
+  document.querySelector("#player-date h3").appendChild(profileLink);
 });
 
 const initPlanet = () => fetch(`/api/planets/${id}`, {
