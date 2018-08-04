@@ -10,7 +10,7 @@ Player.fetchCurrentPlayer().then(player => {
     link.href = `/static/images/factions/${player.faction.banner}`;
     document.getElementsByTagName('head')[0].appendChild(link);
     var bankAccount = document.createElement('a');
-    bankAccount.innerText = player.isActive;
+    bankAccount.innerText = player;
     document.querySelector("#player-wallet h4").appendChild(bankAccount);
 });
 
