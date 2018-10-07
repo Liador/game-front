@@ -29,7 +29,63 @@ const generateOrbit = (systemElement, data) => {
 };
 
 const generatePlanets = (systemElement, planets) => {
+    const planetList = document.getElementById("planet-list");
+
     for (const planet of planets) {
+        /** DISPLAYS THE PLANET IN THE PLANET LIST OF THE SYSTEM*/
+        const planetDiv = document.createElement("div");
+        let player;
+        let pseudo;
+        let factionName;
+        const pseudoDiv = document.createElement("div");
+
+        if (planet.player!==null) {
+            pseudoDiv.id="player"+planet.player.id;
+            factionName = planet.player.faction.name;
+            planetDiv.appendChild(pseudoDiv);
+            player = Player.fetchPlayer(planet.player.id).then(function(playerInfo) {
+                pseudo=playerInfo.pseudo;
+
+                return playerInfo;
+            }
+          );
+        }
+        else {
+            pseudo="RebelleTOTRAD";
+            factionName="pas de faction";
+        }
+        planetDiv.classList.add("planet-details");
+
+        planet.player!==null?planetDiv.classList.add("faction-id-"+planet.player.faction.id):planetDiv.classList.add('no-faction');
+
+
+        planetDiv.innerHTML=`
+            <div class="planet-image">
+                <img src="">
+            </div>
+            <div class="planet-info">
+            </div>
+            <div class="player-info">
+                <div class="race">
+                HumainTOTRAD
+                </div>
+                <div class="name">
+                ${pseudo}
+                </div>
+                <div class="faction">
+                ${factionName}
+                </div>
+            </div>
+            <div class="planet-actions">
+            </div>
+            `;
+
+
+        planetList.appendChild(planetDiv);
+        if (planet.player!==null) {
+            //document.getElementById("player"+planet.player.id).innerHTML=pseudo;
+        }
+        /** DISPLAYS THE PLANET ON THE SYSTEM VIEW*/
         generateOrbit(systemElement, planet.orbit);
         const orbitStyle = window.getComputedStyle(document.querySelector(`.orbit[data-id='${planet.orbit.id}']`));
         const radius = parseInt(orbitStyle.width) / 2;

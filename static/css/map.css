@@ -163,7 +163,7 @@ html {
 
 #system {
     position: relative;
-    grid-column: 1/10;
+    grid-column: 6/11;
     grid-row: 2/10;
   overflow: hidden;
 }
@@ -228,6 +228,26 @@ html {
 }
 
 #map-link > a {
-  color: #E1BB8A;
-  text-decoration: none;
+    color: #E1BB8A;
+    text-decoration: none;
+}
+
+#planet-list {
+    display: flex;
+    grid-column: 1/6;
+    grid-row: 3/10;
+    align-content: start;
+    flex-wrap: wrap;
+    overflow: auto;
+    direction: rtl;
+    text-align: left;
+}
+
+.planet-details {
+    margin-left: 50px;
+    width: 100%;
+    /* height: 150px; */
+    border: 3px solid red;
+    border-radius: 150px;
+    margin-bottom: 10px;
 }
